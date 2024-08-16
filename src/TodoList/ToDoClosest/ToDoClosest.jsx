@@ -9,10 +9,8 @@ const ToDoClosest = ({ taskStyles, deleteStyle }) => {
 
   const currentPageTaskStyles = taskStyles[currentPage];
 
-  if (currentPageTaskStyles.length > 0) {
+  if (currentPageTaskStyles.length >= 0) {
     const tempClosestTask = currentPageTaskStyles.reduce((acc, task) => {
-      console.log(taskStyles);
-
       const taskEndTime = dateToSeconds(task.endTime, task.endDate);
       const accEndTime = dateToSeconds(acc.endTime, acc.endDate);
       return taskEndTime < accEndTime ? task : acc;
@@ -21,6 +19,7 @@ const ToDoClosest = ({ taskStyles, deleteStyle }) => {
       setClosestTask(tempClosestTask);
     }
   }
+
   return (
     <div style={{ backgroundColor: "rgba(34,32,32,0.5)" }}>
       {closestTask ? <Task {...closestTask} deleteStyle={deleteStyle} /> : null}

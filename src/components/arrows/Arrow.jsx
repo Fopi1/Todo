@@ -13,7 +13,7 @@ const Arrow = ({ style }) => {
         } else if (style.rotate === "180deg") {
           action.current = -1;
         }
-        addCurrentPage(action);
+        addCurrentPage(action.current);
       }}
       style={style}
       className="arrow"

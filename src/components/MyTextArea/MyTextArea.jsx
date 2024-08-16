@@ -6,7 +6,7 @@ const MyTextArea = forwardRef(({ placeholder }, ref) => {
     <textarea
       placeholder={placeholder}
       ref={ref}
-      maxLength="168"
+      maxLength="166"
       type="text"
       className="task-text"
     />

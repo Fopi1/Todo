@@ -18,7 +18,7 @@ export const filterTasks = (pages, currentPage, taskStyles, id = "") => {
   }
   // Проверка на изменение текущей страницы для обнуления сортировки
   if (prevPage !== currentPage && pages >= prevPage) {
-    let prevPageTaskStyles = taskStyles[prevPage];
+    const prevPageTaskStyles = taskStyles[prevPage];
     prevPageTaskStyles.sort((a, b) => a.id - b.id);
     chosenFilters = [];
     prevPage = currentPage;
