@@ -46,7 +46,7 @@ const TodoList = () => {
     }
     // Check if the current page are full and forward styles to new page without adding new page
     else if (isCurrentPageFull) {
-      forwardStylesToNewPage(tasks);
+      forwardStylesToNewPage({ tasks: tasks });
     }
     // Add the task to the current page
     else {

@@ -5,7 +5,7 @@ import "./ToDoMain.css";
 
 const ToDoMain = ({ taskStyles, deleteStyle }) => {
   return (
-    <div className="main">
+    <div className="Todo-main">
       <ToDoClosest taskStyles={taskStyles} deleteStyle={deleteStyle} />
       <ToDoTasks taskStyles={taskStyles} deleteStyle={deleteStyle} />
     </div>

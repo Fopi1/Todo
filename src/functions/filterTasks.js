@@ -13,13 +13,13 @@ export const filterTasks = (pages, currentPage, taskStyles, id = "") => {
   }
   // Провека на то, что выбранный список фильтров пустой и возвращает дефолтный порядок
   if (chosenFilters.length === 0) {
-    currentPageTaskStyles.sort((a, b) => a.index - b.index);
+    currentPageTaskStyles.sort((a, b) => a.id - b.id);
     return taskStyles;
   }
   // Проверка на изменение текущей страницы для обнуления сортировки
   if (prevPage !== currentPage && pages >= prevPage) {
     let prevPageTaskStyles = taskStyles[prevPage];
-    prevPageTaskStyles.sort((a, b) => a.index - b.index);
+    prevPageTaskStyles.sort((a, b) => a.id - b.id);
     chosenFilters = [];
     prevPage = currentPage;
     return taskStyles;

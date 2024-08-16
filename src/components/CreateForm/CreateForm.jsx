@@ -7,8 +7,7 @@ import MyError from "../errorComponent/MyError";
 import { useMultipleRefs } from "../../hooks/useMultipleRefs";
 
 const CreateForm = ({ forwardStyles }) => {
-  const [time, date, task, endTime, endDate] = useMultipleRefs(5, 0);
-  const index = useRef(0);
+  const [time, date, task, endTime, endDate, id] = useMultipleRefs(6, 0);
   const colorStyle = useRef(1);
   const needsValuesOfTask = [task, endTime, endDate];
   const [isError, setIsError] = useState(false);
@@ -96,13 +95,13 @@ const CreateForm = ({ forwardStyles }) => {
             task: task.current.value,
             endTime: endTime.current.value,
             endDate: endDate.current.value.split("-").reverse().join("."),
-            index: index.current,
+            id: id.current,
             dateRank: 0,
             endDateRank: 0,
             alphabetRank: 0,
             importanceRank: 0,
           });
-          index.current += 1;
+          id.current += 1;
         }}
       >
         Добавить задание
