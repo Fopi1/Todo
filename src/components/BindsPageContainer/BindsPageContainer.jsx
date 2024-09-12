@@ -11,7 +11,7 @@ const BindsPageContainer = () => {
       <div className="binds-page__container__inner">
         <header className="binds-page__header">
           <nav className="navbar">
-            <Link to="/">
+            <Link to="/Todo">
               <Button>
                 <ButtonArrow style={{ rotate: "180deg" }} /> Назад
               </Button>
@@ -19,7 +19,7 @@ const BindsPageContainer = () => {
           </nav>
         </header>
         <main>
-          <BindContainer></BindContainer>
+          <BindContainer />
         </main>
       </div>
     </div>

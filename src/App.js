@@ -9,7 +9,7 @@ function App() {
     <PageProvider>
       <BrowserRouter>
         <Routes>
-          <Route path={"/"} element={<MainPage />} />
+          <Route path={"/Todo"} element={<MainPage />} />
           <Route path={"/binds"} element={<BindsPage />} />
         </Routes>
       </BrowserRouter>

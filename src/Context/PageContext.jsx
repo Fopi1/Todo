@@ -5,9 +5,19 @@ const CurrentPageContext = createContext();
 const TaskContext = createContext();
 
 const PageProvider = ({ children }) => {
-  const [pages, addPages] = useState(0);
+  const savedTodos = JSON.parse(localStorage.getItem("todos"));
+
+  const [pages, addPages] = useState(loadPages());
   const [currentPage, addCurrentPage] = useState(0);
-  const [taskStyles, setTaskStyles] = useState([[]]);
+  const [taskStyles, setTaskStyles] = useState(loadTodos());
+
+  function loadPages() {
+    return savedTodos ? savedTodos.length - 1 : 0;
+  }
+
+  function loadTodos() {
+    return savedTodos ? savedTodos : [[]];
+  }
 
   const handleAddPages = (value) => {
     if (value > 0) {

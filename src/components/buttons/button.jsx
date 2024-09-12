@@ -1,21 +1,11 @@
 import React from "react";
 import "./button.css";
 
-const Button = ({ children, stateCallback, styleButton, styleComponents }) => {
+const Button = ({ children, onClick, styleButton, styleComponents }) => {
   return (
-    <>
-      <button
-        onClick={() => {
-          if (stateCallback) {
-            stateCallback((state) => !state);
-          }
-        }}
-        style={styleButton}
-        className="button"
-      >
-        <span style={styleComponents}>{children}</span>
-      </button>
-    </>
+    <button onClick={onClick} style={styleButton} className="button">
+      <div style={styleComponents}>{children}</div>
+    </button>
   );
 };
 

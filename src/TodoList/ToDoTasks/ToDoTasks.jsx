@@ -3,7 +3,7 @@ import Task from "../../components/task/Task";
 import { CurrentPageContext } from "../../Context/PageContext";
 
 const ToDoTasks = ({ taskStyles, deleteStyle }) => {
-  let { currentPage, addCurrentPage: _ } = useContext(CurrentPageContext);
+  let { currentPage } = useContext(CurrentPageContext);
   return (
     <div>
       {taskStyles[currentPage].map((task) => {

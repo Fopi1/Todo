@@ -35,6 +35,8 @@ const TodoList = () => {
   // FUNCTIONS
   // Add Todo task to task styles array
   const forwardStyles = (tasks) => {
+    console.log(pages);
+
     const isAllPagesFull = taskStyles[pages].length >= 8;
     const isCurrentPageFull = taskStyles[currentPage].length >= 8;
 
@@ -93,6 +95,10 @@ const TodoList = () => {
   useEffect(() => {
     setTaskStyles([...filterTasks(pages, currentPage, taskStyles)]);
   }, [currentPage]);
+  // Save todos in local storage
+  useEffect(() => {
+    localStorage.setItem("todos", JSON.stringify(taskStyles));
+  }, [taskStyles]);
   // Keybinds
   useEffect(() => {
     const handleKeyShortcuts = binds(

@@ -5,7 +5,7 @@ import { CSSTransition } from "react-transition-group";
 import { CurrentPageContext } from "../../Context/PageContext";
 
 const Filter = ({ filterState, filterTasks }) => {
-  const { currentPage, setCurrentPage: _ } = useContext(CurrentPageContext);
+  const { currentPage } = useContext(CurrentPageContext);
   // Значения того были ли нажаты кнопки
   const [isChecked, setIsChecked] = useState({
     filterDate: false,

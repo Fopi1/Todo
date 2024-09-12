@@ -7,13 +7,18 @@ import { CurrentPageContext, PageContext } from "../../Context/PageContext";
 import BindsLogo from "../../components/BindsLogo/BindsLogo";
 
 const TodoHeader = ({ stateOfFilter, stateOfModal }) => {
-  const { pages, addPages: _ } = useContext(PageContext);
-  const { currentPage, addCurrentPage: __ } = useContext(CurrentPageContext);
+  const { pages } = useContext(PageContext);
+  const { currentPage } = useContext(CurrentPageContext);
   return (
     <div className="Todo-Header">
       <div className="Todo-Header-wrapper">
-        <Button stateCallback={stateOfFilter}>
-          <ButtonArrow style={{ marginTop: 5, rotate: "90deg" }} /> Фильтр
+        <Button
+          onClick={() => {
+            stateOfFilter((state) => !state);
+          }}
+        >
+          <ButtonArrow style={{ marginTop: 5, rotate: "90deg" }} />
+          <span>Фильтр</span>
         </Button>
         <Link to="/binds">
           <Button>
@@ -21,6 +26,14 @@ const TodoHeader = ({ stateOfFilter, stateOfModal }) => {
             Бинды
           </Button>
         </Link>
+        <Button
+          onClick={() => {
+            console.log("da");
+            localStorage.clear();
+          }}
+        >
+          Clear
+        </Button>
       </div>
       <div className="pages-container">
         <span>Количество страниц:</span>

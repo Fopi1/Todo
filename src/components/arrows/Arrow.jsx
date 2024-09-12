@@ -3,21 +3,24 @@ import "./Arrow.css";
 import { CurrentPageContext } from "../../Context/PageContext";
 
 const Arrow = ({ style }) => {
-  const { currentPage: __, addCurrentPage } = useContext(CurrentPageContext);
+  const { addCurrentPage } = useContext(CurrentPageContext);
+
   const action = useRef(0);
   return (
-    <span
-      onClick={() => {
-        if (style === undefined) {
-          action.current = 1;
-        } else if (style.rotate === "180deg") {
-          action.current = -1;
-        }
-        addCurrentPage(action.current);
-      }}
-      style={style}
-      className="arrow"
-    ></span>
+    <div className="arrow-container">
+      <span
+        onClick={() => {
+          if (style === undefined) {
+            action.current = 1;
+          } else if (style.rotate === "180deg") {
+            action.current = -1;
+          }
+          addCurrentPage(action.current);
+        }}
+        style={{ ...style }}
+        className="arrow"
+      ></span>
+    </div>
   );
 };
 
